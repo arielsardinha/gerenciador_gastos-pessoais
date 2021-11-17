@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:gerenciador_gastos_pessais/models/conta.dart';
+import 'package:gerenciador_gastos_pessais/services/conta_service.dart';
 
 class CadastrarContaScreen extends StatelessWidget {
   final _tituloController = TextEditingController();
   final _saldoController = TextEditingController();
+  ContaService controller = ContaService();
+
+  CadastrarContaScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +34,19 @@ class CadastrarContaScreen extends StatelessWidget {
                   decoration: const InputDecoration(labelText: "Saldo"),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 20, bottom: 20),
-                  child: Container(
+                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  child: SizedBox(
                     height: 40,
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        print(_saldoController.text);
+                        Conta newConta = Conta(
+                          titulo: _tituloController.text,
+                          saldo: double.parse(_saldoController.text),
+                        );
+                        controller.addConta(newConta);
                       },
-                      child: Text("Cadastrar",
+                      child: const Text("Cadastrar",
                           style: TextStyle(color: Colors.white, fontSize: 16)),
                     ),
                   ),
