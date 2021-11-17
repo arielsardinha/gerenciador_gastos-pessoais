@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciador_gastos_pessais/screens/cadastrar_conta/cadastrar_conta_screen.dart';
+import 'package:gerenciador_gastos_pessais/screens/home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CadastrarContaScreen(),
+      home: const HomeScreen(),
     );
   }
 }
