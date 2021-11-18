@@ -70,10 +70,12 @@ class _CadastrarTransacaoState extends State<CadastrarTransacao> {
                       ),
                       DropdownButtonFormField(
                         value: _contaSelecionada,
-                        onChanged: (Conta conta) {
-                          setState(() {
-                            _contaSelecionada = conta;
-                          });
+                        onChanged: (Conta? conta) {
+                          if (conta != null) {
+                            setState(() {
+                              _contaSelecionada = conta;
+                            });
+                          }
                         },
                         items: _contas.map((conta) {
                           return DropdownMenuItem<Conta>(
