@@ -31,12 +31,12 @@ Widget cardConta(BuildContext context, Conta contas) {
                   color: Colors.white),
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 63,
             left: 16,
             child: Text(
               "Saldo em conta",
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Colors.white),

@@ -18,10 +18,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CadastrarTransacao(
-        tipoTransacao: 2,
-      ),
+      // home: const CadastrarTransacao(
+      //   tipoTransacao: 2,
+      // ),
       // home: CadastrarContaScreen(),
+      home: const HomeScreen(),
     );
   }
 }
