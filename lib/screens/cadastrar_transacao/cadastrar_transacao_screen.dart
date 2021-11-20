@@ -74,34 +74,34 @@ class _CadastrarTransacaoState extends State<CadastrarTransacao> {
                     ),
                   ),
                 ),
-                FutureBuilder(
-                    future: _loadContas,
-                    builder: (context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasData) {
-                        _contas = snapshot.data;
-                        return DropdownButtonFormField(
-                          value: _contaSelecionada,
-                          onChanged: (Conta? conta) {
-                            if (conta != null) {
-                              setState(() {
-                                _contaSelecionada = conta;
-                              });
-                            }
-                          },
-                          items: _contas.map((conta) {
-                            return DropdownMenuItem<Conta>(
-                              value: conta,
-                              child: Text(conta.titulo),
-                            );
-                          }).toList(),
-                        );
-                      } else {
-                        return const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('carregando...'),
-                        );
-                      }
-                    }),
+                // FutureBuilder(
+                //     future: _loadContas,
+                //     builder: (context, AsyncSnapshot snapshot) {
+                //       if (snapshot.hasData) {
+                //         _contas = snapshot.data;
+                //         return DropdownButtonFormField(
+                //           value: _contaSelecionada,
+                //           onChanged: (Conta? conta) {
+                //             if (conta != null) {
+                //               setState(() {
+                //                 _contaSelecionada = conta;
+                //               });
+                //             }
+                //           },
+                //           items: _contas.map((conta) {
+                //             return DropdownMenuItem<Conta>(
+                //               value: conta,
+                //               child: Text(conta.titulo),
+                //             );
+                //           }).toList(),
+                //         );
+                //       } else {
+                //         return const Padding(
+                //           padding: EdgeInsets.all(8.0),
+                //           child: Text('carregando...'),
+                //         );
+                //       }
+                //     }),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 20),
                   child: SizedBox(
