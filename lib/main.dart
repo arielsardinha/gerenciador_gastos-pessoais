@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       home: const CadastrarTransacao(
         tipoTransacao: 2,
       ),
+      // home: CadastrarContaScreen(),
     );
   }
 }
