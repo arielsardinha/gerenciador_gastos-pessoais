@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gerenciador_gastos_pessais/models/conta.dart';
 import 'package:gerenciador_gastos_pessais/models/transacao.dart';
+import 'package:gerenciador_gastos_pessais/screens/home/home_screen.dart';
 import 'package:gerenciador_gastos_pessais/services/conta_service.dart';
 import 'package:date_format/date_format.dart';
 import 'package:gerenciador_gastos_pessais/services/transacao_service.dart';
@@ -37,12 +38,14 @@ class _CadastrarTransacaoState extends State<CadastrarTransacao> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro de transação'),
-        backgroundColor: widget.tipoTransacao == 1 ? Colors.blue : Colors.red,
+        title: Text(widget.tipoTransacao == 1
+            ? 'Cadastro de entrada'
+            : 'cadastro de saída'),
+        backgroundColor: widget.tipoTransacao == 1 ? Colors.green : Colors.red,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Form(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +120,11 @@ class _CadastrarTransacaoState extends State<CadastrarTransacao> {
                           data: selectDate.toString(),
                           conta: _contaSelecionada.id,
                         );
-                        ts.addTransacao(newTransacao);
+                        try {
+                          ts.addTransacao(newTransacao);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => const HomeScreen()));
+                        } catch (e) {}
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
